@@ -35,12 +35,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/**
- * Screen 1 — Registration.
- * Demonstrates all 11 UI Components in a single flow:
- * TextView, EditText, ImageView, ImageButton, CheckBox, RadioButton/RadioGroup,
- * Switch, SeekBar, ProgressBar, Button — each wired to its own Event -> State.
- */
 @Composable
 fun RegistrationScreen(
     viewModel: StudentViewModel,
@@ -54,7 +48,6 @@ fun RegistrationScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        // 1) TextView -> Text
         Text(
             text = "Student Registration",
             fontSize = 24.sp,
@@ -63,8 +56,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 3) ImageView -> Image   +   4) ImageButton -> IconButton
-        // NOTE: add an image named "student.png/.xml" under res/drawable to see the photo.
         Box(contentAlignment = Alignment.BottomEnd) {
             Image(
                 painter = painterResource(id = R.drawable.student),
@@ -74,7 +65,6 @@ fun RegistrationScreen(
                     .clip(CircleShape)
             )
             IconButton(onClick = {
-                // Event -> Action (replace with an image picker later)
                 println("Edit profile photo")
             }) {
                 Icon(imageVector = Icons.Default.Edit, contentDescription = "Edit photo")
@@ -83,24 +73,16 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 2) EditText -> TextField : Name
         Text(text = "Name", modifier = Modifier.align(Alignment.Start))
         TextField(
             value = viewModel.studentName,
-            onValueChange = { viewModel.studentName = it },   // Event -> State
+            onValueChange = { viewModel.studentName = it },
             label = { Text("Enter your name") },
             modifier = Modifier.fillMaxWidth()
         )
-        if (viewModel.studentName.isNotBlank()) {
-            Text(
-                text = "Hello ${viewModel.studentName}",       // State -> UI
-                modifier = Modifier.align(Alignment.Start)
-            )
-        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 2) EditText -> TextField : Student ID
         Text(text = "Student ID", modifier = Modifier.align(Alignment.Start))
         TextField(
             value = viewModel.studentId,
@@ -111,7 +93,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 7) RadioButton   +   8) RadioGroup (Column holding the shared State) : Degree
         Text(text = "Degree", modifier = Modifier.align(Alignment.Start), fontWeight = FontWeight.Bold)
         Column(modifier = Modifier.fillMaxWidth()) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -132,7 +113,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 5) CheckBox : Skills
         Text(text = "Skills", modifier = Modifier.align(Alignment.Start), fontWeight = FontWeight.Bold)
         Column(modifier = Modifier.fillMaxWidth()) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -151,7 +131,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 9) Switch : Notifications
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -166,7 +145,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 10) SeekBar -> Slider : Interest Level (continuous event)
         Text(
             text = "Interest Level: ${viewModel.interestLevel.toInt()}%",
             modifier = Modifier.align(Alignment.Start)
@@ -179,7 +157,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 11) ProgressBar -> LinearProgressIndicator : Profile Completion (app-driven, not user-driven)
         Text(
             text = "Profile Completion: ${(viewModel.profileProgress * 100).toInt()}%",
             modifier = Modifier.align(Alignment.Start)
@@ -191,7 +168,6 @@ fun RegistrationScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // 12) Button + Event Chain: REGISTER -> onClick -> registered = true -> navigate()
         Button(
             onClick = {
                 viewModel.registered = true

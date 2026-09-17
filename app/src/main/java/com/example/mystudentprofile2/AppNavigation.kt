@@ -26,12 +26,6 @@ sealed class Screen(val route: String, val label: String, val icon: ImageVector)
     object Settings : Screen("settings", "Settings", Icons.Default.Settings)
 }
 
-/**
- * Screen 4 — Navigation.
- * Bottom Navigation bar hosts three destinations: Home (Registration),
- * Profile, Settings. The REGISTER button on the Registration screen also
- * navigates programmatically to Profile (see the Event Chain in Step 12).
- */
 @Composable
 fun AppNavigation(viewModel: StudentViewModel) {
     val navController = rememberNavController()
@@ -71,7 +65,6 @@ fun AppNavigation(viewModel: StudentViewModel) {
                 RegistrationScreen(
                     viewModel = viewModel,
                     onRegisterSuccess = {
-                        // Event Chain: REGISTER -> onClick -> registered = true -> navigate()
                         navController.navigate(Screen.Profile.route) {
                             launchSingleTop = true
                         }

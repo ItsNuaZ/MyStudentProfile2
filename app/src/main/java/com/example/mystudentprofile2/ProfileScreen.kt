@@ -25,11 +25,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/**
- * Screen 2 — Profile.
- * Reads (does not mutate) the shared StudentViewModel state that was
- * produced on the Registration screen -> a pure "State -> UI" screen.
- */
 @Composable
 fun ProfileScreen(viewModel: StudentViewModel) {
     Column(

@@ -23,12 +23,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/**
- * Screen 3 — Settings.
- * Dark Mode and Notifications reuse the SAME StudentViewModel state as the
- * other screens, so toggling here is reflected everywhere (and Dark Mode
- * actually re-themes the whole app, see MainActivity).
- */
 @Composable
 fun SettingsScreen(viewModel: StudentViewModel) {
     Column(
@@ -40,7 +34,6 @@ fun SettingsScreen(viewModel: StudentViewModel) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // 9) Switch : Dark Mode
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -55,7 +48,6 @@ fun SettingsScreen(viewModel: StudentViewModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 9) Switch : Notifications (shared state with Registration screen)
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -70,7 +62,6 @@ fun SettingsScreen(viewModel: StudentViewModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 6) ToggleButton -> IconToggleButton : Favorite
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,

@@ -14,10 +14,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // One ViewModel instance shared by every screen in the NavHost
             val viewModel: StudentViewModel = viewModel()
 
-            // Dark Mode switch on the Settings screen drives the theme directly
             StudentRegistrationTheme(darkTheme = viewModel.darkModeEnabled) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
