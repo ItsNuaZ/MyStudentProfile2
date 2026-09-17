@@ -1,4 +1,4 @@
-package com.example.studentregistration
+package com.example.mystudentprofile2.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package com.example.studentregistration
+package com.example.mystudentprofile2
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
